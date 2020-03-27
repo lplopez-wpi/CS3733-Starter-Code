@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class HomeState {
+  /* This stores the state of the home screen */
 
   private SimpleBooleanProperty clickedProperty = new SimpleBooleanProperty(false);
   private SimpleStringProperty currentNodeProperty = new SimpleStringProperty(null);

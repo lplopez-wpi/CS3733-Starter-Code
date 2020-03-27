@@ -2,7 +2,7 @@ package edu.wpi.teamname;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import edu.wpi.teamname.modules.ServiceOneServiceProvider;
+import edu.wpi.teamname.modules.DatabaseServiceProvider;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +21,7 @@ public class App extends Application {
 
   @Override
   public void start(Stage primaryStage) throws IOException {
-    Injector injector = Guice.createInjector(new ServiceOneServiceProvider());
+    Injector injector = Guice.createInjector(new DatabaseServiceProvider());
     FXMLLoader fxmlLoader = new FXMLLoader();
     fxmlLoader.setControllerFactory(injector::getInstance);
 

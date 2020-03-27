@@ -2,7 +2,7 @@ package edu.wpi.teamname.views;
 
 import static org.testfx.api.FxAssert.verifyThat;
 
-import edu.wpi.teamname.services.ServiceOne;
+import edu.wpi.teamname.services.DatabaseService;
 import edu.wpi.teamname.services.ServiceTwo;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,13 +24,13 @@ import org.testfx.framework.junit5.ApplicationTest;
 public class HomeTest extends ApplicationTest {
 
   @Mock ServiceTwo two;
-  @Mock ServiceOne one;
+  @Mock DatabaseService one;
 
   @InjectMocks HomeController controller;
 
   @BeforeEach
   public void init() {
-    Mockito.when(one.getInfoFromServiceOne()).thenCallRealMethod();
+    Mockito.when(one.getInfoFromDatabase()).thenCallRealMethod();
   }
 
   @Override

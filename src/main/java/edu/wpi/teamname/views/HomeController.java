@@ -1,7 +1,7 @@
 package edu.wpi.teamname.views;
 
 import com.google.inject.Inject;
-import edu.wpi.teamname.services.ServiceOne;
+import edu.wpi.teamname.services.DatabaseService;
 import edu.wpi.teamname.services.ServiceTwo;
 import edu.wpi.teamname.state.HomeState;
 import java.net.URL;
@@ -16,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HomeController implements Initializable {
 
-  @Inject ServiceOne db;
+  @Inject DatabaseService db;
   @Inject ServiceTwo graph;
   @FXML private Label text;
   private HomeState state = new HomeState();
@@ -29,7 +29,7 @@ public class HomeController implements Initializable {
 
   public void buttonClicked(ActionEvent actionEvent) {
     log.trace("{} clicked", ((Button) actionEvent.getSource()).getText());
-    log.info(db.getInfoFromServiceOne());
+    log.info(db.getEmployeeName());
     this.state.getClickedProperty().set(!state.getClickedProperty().get());
     this.state.getCurrentNodeProperty().set(graph.getResults().get(0));
   }
